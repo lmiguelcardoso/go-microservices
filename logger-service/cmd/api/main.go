@@ -49,7 +49,7 @@ func main() {
 		Models: data.New(client),
 	}
 
-	go app.serve()
+	app.serve()
 }
 
 func (app *Config) serve() {
@@ -76,8 +76,8 @@ func connectToMongo() (*mongo.Client, error) {
 
 	if err != nil {
 		log.Println("error connecting: ", err)
-		return nil, mongo.ErrNilCursor
+		return nil, err
 	}
 
-	return c, mongo.ErrNilCursor
+	return c, nil
 }
